@@ -1,0 +1,15 @@
+<h2>Введите последовательность чисел через пробел <br>
+Количество чисел не меньше 10</h1>
+
+<%unless flash[:notice].blank?%>
+  <h2 style = 'color:red'><%=flash[:notice]%></h2>
+<%end%>
+<%= form_with url: "/task/show",  method: :get do |form| %>
+  <%= form.label :number, "Введите числа:" %>
+  <%= form.text_field :number, value: '1 2 3 0 9 8 7 1 2 3' %>
+  <%= form.submit "Выполнить" %>
+<% end %>
+<br/>
+<%= form_with url: "/task/show_db", id: 'db_form',method: :get do |form| %>
+  <%= form.submit id: 'db_btn',value: "Показать БД" %>
+<% end %>
