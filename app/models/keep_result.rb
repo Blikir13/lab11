@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 class KeepResult < ApplicationRecord
-  validates_uniqueness_of :input, :result, message: 'Введено не уникальное значение'
-  validates :input, format: { with: /\A(\d+\s){9,}([0-9]+)\z/, message: 'Error' }
+  validates_uniqueness_of :input, message: 'Введено не уникальное значение'
+  validates :input, format: { with: /\A(\d+\s){9,}([0-9]+)\z/, message: 'Неверный ввод!' }
   before_save :save_result
 
   def decoded_result
